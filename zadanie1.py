@@ -10,6 +10,7 @@ while stawka !='koniec':
     print("Jeśli chcesz zakończyć podawanie produktów wpisz 'koniec'")
     if stawka == 'koniec':
         break
+    
     stawka = input("Podaj stawke vat: ")
     if stawka == '23' or stawka == '23%':
         kwota = int(input("Podaj kwotę netto: "))
@@ -33,6 +34,7 @@ netto_vat8= suma_vat8*1.08
 netto_vat5= suma_vat5*1.05
 netto_vat0= suma_vat0
 
+suma = netto_vat0 + netto_vat5 + netto_vat8 + netto_vat23
 
 
 data = [
@@ -40,23 +42,24 @@ data = [
         "": "VAT 0%",
         
         "Total netto": suma_vat0,
-        "Price": netto_vat0
+        f"{suma}": netto_vat0
     },
     {
         "": "VAT 5%",
         "Total netto": suma_vat5,
-        "Price": netto_vat5
+        f"{suma}": netto_vat5
     },
     {
         "": "VAT 8%",
         "Total netto": suma_vat8,
-        "Price": netto_vat8
+        f"{suma}": netto_vat8
     },
     {
         "": "VAT 23%",
         "Total netto": suma_vat23,
-        "Price": netto_vat23
+        f"{suma}": netto_vat23
     },
+    
 ]
 markdown = markdown_table(data).get_markdown()
 print(markdown)
